@@ -62,7 +62,9 @@ export async function transactionsRoutes(app: FastifyInstance) {
         .sum('amount', { as: 'amount' })
         .first()
 
-      return summary
+      return {
+        summary,
+      }
     },
   )
 
