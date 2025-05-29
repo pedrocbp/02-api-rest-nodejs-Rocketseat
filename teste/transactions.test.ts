@@ -37,6 +37,9 @@ describe('Transactions routes', () => {
       })
 
     const cookies = createTransactionResponse.get('Set-Cookie')
+    if (!cookies) {
+      throw new Error('Cookie não retornado na criação da transação.')
+    }
 
     const listTransactionsResponse = await supertest(app.server)
       .get('/transactions')
@@ -61,6 +64,9 @@ describe('Transactions routes', () => {
       })
 
     const cookies = createTransactionResponse.get('Set-Cookie')
+    if (!cookies) {
+      throw new Error('Cookie não retornado na criação da transação.')
+    }
 
     const listTransactionsResponse = await supertest(app.server)
       .get('/transactions')
@@ -92,6 +98,9 @@ describe('Transactions routes', () => {
       })
 
     const cookies = createTransactionResponse.get('Set-Cookie')
+    if (!cookies) {
+      throw new Error('Cookie não retornado na criação da transação.')
+    }
 
     await supertest(app.server)
       .post('/transactions')
